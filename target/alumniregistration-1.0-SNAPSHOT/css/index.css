@@ -91,6 +91,7 @@ h2 {
   clear: both; }
 
 body {
+  min-height: 100vh;
   font-size: 14px;
   line-height: 1.8;
   color: #222;
@@ -107,9 +108,14 @@ body {
   padding: 105px 0; }
 
 .container {
-  width: 660px;
+  width: calc(100% - 0px);
   position: relative;
   margin: 0 auto; }
+
+.eform-container{
+  position: relative;
+  margin: 0% 2% auto;
+}
 
 .display-flex {
   justify-content: space-between;
@@ -145,7 +151,7 @@ body {
   -o-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%); }
 
-.signup-content, .individual-content ,.pinfo-content{
+.signup-content, .individual-content ,.pinfo-content , .einfo-content , .oinfo-content{
   background: #fff;
   border-radius: 10px;
   -moz-border-radius: 10px;
@@ -154,6 +160,9 @@ body {
   -ms-border-radius: 10px;
   padding: 50px 85px; }
 
+/*.einfo-content{*/
+/*  padding: 0px;*/
+/*}*/
 
 .form-group {
   overflow: hidden;
@@ -212,7 +221,7 @@ body {
     .form-input:focus:-moz-placeholder {
       color: #222; }
 
-.form-submit, .individual-submit  {
+.form-submit, .individual-submit , .pinfo-submit {
   width: 100%;
   border-radius: 5px;
   -moz-border-radius: 5px;
@@ -231,6 +240,22 @@ body {
   background-image: -o-linear-gradient(to left, #74ebd5, #9face6);
   background-image: -webkit-linear-gradient(to left, #74ebd5, #9face6);
   background-image: linear-gradient(to left, #74ebd5, #9face6); }
+
+.form-btn{
+  width: 100%;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  padding: 17px 20px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  border: none;
+}
 
 input[type=checkbox]:not(old) {
   width: 2em;
@@ -296,7 +321,7 @@ input[type=checkbox]:not(old):checked + label > span:before {
   margin-top: 91px;
   margin-bottom: 5px; }
 
-.loginhere-link , .index-link{
+.loginhere-link , .index-link , .oinfo-link{
   font-weight: 700;
   color: #222; }
 
@@ -313,6 +338,6 @@ input[type=checkbox]:not(old):checked + label > span:before {
     width: calc(100% - 40px);
     max-width: 100%; } }
 @media screen and (max-width: 480px) {
-  .signup-content, .individual-content , .pinfo-content {
+  .signup-content, .individual-content , .pinfo-content , .einfo-content, .oinfo-content{
     padding: 50px 25px; } }
 

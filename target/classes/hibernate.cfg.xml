@@ -14,6 +14,12 @@
         <property name="show_sql">true</property>
         <mapping class="com.example.alumni.bean.Student" />
         <mapping class="com.example.alumni.bean.AlumniDetails" />
+        <mapping class="com.example.alumni.bean.AlumniEducation" />
+        <mapping class="com.example.alumni.bean.Organisation" />
+
+
+
+
 
     </session-factory>
 </hibernate-configuration>
