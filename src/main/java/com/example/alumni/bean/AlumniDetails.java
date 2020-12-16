@@ -63,7 +63,7 @@ public class AlumniDetails {
         return "AlumniDetails{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
-                ", password='" + contact + '\'' +
+                ", contact='" + contact + '\'' +
                 ", studentid=" + student +
                 '}';
     }
