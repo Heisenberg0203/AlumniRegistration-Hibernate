@@ -16,13 +16,15 @@ pinfo_form.addEventListener('submit', async (e) => {
                 student:{id:1,fname:'rushikesh'},
             })
         });
-        let result = await response.json();
+        let result = await response
         console.log(result);
         // console.log("helloworld");
         // console.log(result[0].fname);
 
-
+        pinfo_form.classList.add('was-validated');
+        window.location.href="educationinfo.html";
     }
-    pinfo_form.classList.add('was-validated');
+
+
 });
 
