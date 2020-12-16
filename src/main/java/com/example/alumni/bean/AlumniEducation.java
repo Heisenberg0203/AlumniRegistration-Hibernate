@@ -9,7 +9,7 @@ public class AlumniEducation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne
+    @ManyToOne
     private AlumniDetails alumni;
     @Column(nullable = false)
     private  String degree;
