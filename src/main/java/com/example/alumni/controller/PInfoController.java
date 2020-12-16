@@ -26,7 +26,7 @@ public class PInfoController {
 
             int returnvalue=insert_pinfo(alumni);
             if(returnvalue==1)
-                return Response.ok().build();
+                return Response.ok().entity(alumni).build();
             else
                 return Response.notModified().build();
 
