@@ -1,6 +1,7 @@
 package com.example.alumni.utils;
 
 import com.example.alumni.bean.AlumniDetails;
+import com.example.alumni.bean.Organisation;
 import com.example.alumni.bean.Student;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
@@ -27,13 +28,10 @@ public class Main {
 //        final Session session = getSession();
 //        try {
 //            Transaction transaction = session.beginTransaction();
-//            AlumniDetails alumni = new AlumniDetails();
-//            alumni.setEmail("rushikesh0203@gmail.com");
-//            alumni.setContact("8624982994");
-//            Student s1 = new Student();
-//            s1 = (Student) session.get(Student.class,1);
-//            alumni.setStudent(s1);
-//            session.save(alumni);
+//            Organisation org = new Organisation();
+//            org.setName("SAP Labs");
+//            org.setAddress("Bangalore");
+//            session.save(org);
 //            transaction.commit();
 //            session.close();
 //        } finally {
