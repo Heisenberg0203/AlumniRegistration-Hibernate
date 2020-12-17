@@ -33,7 +33,8 @@ einfo_form.addEventListener('submit', async (e) => {
         // console.log(result[0].fname);
         einfo_form.classList.add('was-validated');
 
-        window.href.location="orginfo.html";
+        window.open("orginfo.html");
+        //window.href.location="orginfo.html";
 
     }
 

@@ -33,7 +33,8 @@ einfo_form.addEventListener('submit', async (e) => {
         // console.log(result[0].fname);
         einfo_form.classList.add('was-validated');
 
-        window.href.location="orginfo.html";
+        window.open("orginfo.html");
+        //window.href.location="orginfo.html";
 
     }
 
@@ -45,29 +46,7 @@ einfo_form.addEventListener('submit', async (e) => {
 function add_more(btn) {
     const div = document.createElement('div');
     div.className = "form-row element";
-    div.innerHTML = `
-        
-                <div class="form-group col-md-3">
-                <input type="text" class="form-input" name="ae[][college_name]"  placeholder="College Name"/>
-                </div>
-            <div class="form-group col-md-3">
-                <input type="text" class="form-input" name="ae[][address]" placeholder="Address"/>
-            </div>
-            <div class="form-group col-md-2">
-                <input type="text" class="form-input" name="ae[][degree]" placeholder="Degree"/>
-            </div>
-            <div class="form-row form-group col-md-4">
-                <div class=" col-md-5">
-                    <input type="text" class="form-input" name="ae[][joining_year]" placeholder="Joining Year"/>
-                </div>
-                <div class=" col-md-5">
-                    <input type="text" class="form-input" name="ae[][passing_year]" placeholder="Passing Year"/>
-                </div>
-                <div class="col-md-2">
-                    <input type="button" name="ae[][add-button]"  class="form-btn btn btn-success" onclick="add_more(this)" value="+"/>
-                </div>
-            </div>
-        `;
+    div.innerHTML = $(btn).closest("div.element")[0].innerHTML;
 
     document.getElementById("einfo-element").appendChild(div);
     //console.log($(btn)[0]);
