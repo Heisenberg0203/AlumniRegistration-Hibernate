@@ -332,7 +332,10 @@ input[type=checkbox]:not(old):checked + label > span:before {
   position: relative;
   z-index: 2;
   color: #555; }
-
+#company-names{
+  height: inherit;
+  padding: 17px 20px;
+}
 @media screen and (max-width: 768px) {
   .container {
     width: calc(100% - 40px);
