@@ -16,6 +16,7 @@
         <mapping class="com.example.alumni.bean.AlumniDetails" />
         <mapping class="com.example.alumni.bean.AlumniEducation" />
         <mapping class="com.example.alumni.bean.Organisation" />
+        <mapping class="com.example.alumni.bean.AlumniOrganisation" />
 
 
 

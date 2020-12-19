@@ -64,7 +64,7 @@ public class AlumniDetails {
                 "id=" + id +
                 ", email='" + email + '\'' +
                 ", contact='" + contact + '\'' +
-                ", studentid=" + student +
+                ", studentid=" + student.toString() +
                 '}';
     }
 }

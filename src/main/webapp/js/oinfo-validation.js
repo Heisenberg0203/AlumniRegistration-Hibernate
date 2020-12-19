@@ -6,6 +6,13 @@ let oinfo_form = document.getElementById('oinfo-form');
 oinfo_form.addEventListener('submit', async (e) => {
     e.preventDefault();
     e.stopPropagation();
+    let url = new URL(window.location.href);
+    let aid=url.searchParams.get("aid");
+    if(aid===null){
+        alert("Session expired, Please login");
+        window.open("index.html","_self");
+        return;
+    }
     if (oinfo_form.checkValidity() === true) {
         let organisation_list=[];
         let array = $("#oinfo-form").serializeArray();
@@ -13,7 +20,7 @@ oinfo_form.addEventListener('submit', async (e) => {
         for(let i=0;i<array.length;){
             let organisation={};
             organisation['organisation']={name:array[i++].value,};
-            organisation['alumni']={id:1,};
+            organisation['alumni']={id:parseInt(aid),};
             organisation['position']=array[i++].value;
             organisation['joining_year']=array[i++].value;
             organisation['leaving_year']=array[i++].value;
@@ -33,8 +40,19 @@ oinfo_form.addEventListener('submit', async (e) => {
         // console.log("helloworld");
         // console.log(result[0].fname);
         oinfo_form.classList.add('was-validated');
+        alert(response.status);
+        if(response.status==204){
+            alert("Please Enter Details, SKip if you don't have any");
+        }
+        else if(response.status==409){
+            alert("You have already registered");
+            window.open("index.html","_self");
+        }
+        else{
+            alert("Welcome to IIIT_B Alumni Family!");
+            window.exit();
+        }
 
-        alert("Succesfull");
         // window.href.location="orginfo.html";
 
     }

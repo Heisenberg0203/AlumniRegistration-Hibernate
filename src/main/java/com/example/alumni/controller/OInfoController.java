@@ -27,11 +27,13 @@ public class OInfoController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response registerOrganisationDetails(List<AlumniOrganisation> odetails){
-        System.out.println(odetails.get(0).getOrganisation().getName());
+        if(odetails.get(0).getOrganisation().equals("Company")){
+            return  Response.status(204).build();
+        }
 
         int returnvalue=insert_oinfo(odetails);
         if(returnvalue==1)
-            return Response.ok().entity(odetails).build();
+            return Response.ok().build();
         else
             return Response.notModified().build();
     }

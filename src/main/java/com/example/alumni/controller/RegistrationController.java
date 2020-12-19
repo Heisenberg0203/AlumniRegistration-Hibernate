@@ -1,5 +1,6 @@
 package com.example.alumni.controller;
 
+import com.example.alumni.bean.AlumniDetails;
 import com.example.alumni.bean.Student;
 import com.example.alumni.utils.Main;
 import org.hibernate.Session;
@@ -16,6 +17,7 @@ import java.util.List;
 import com.example.alumni.dao.FetchAlumniDetails;
 
 import static com.example.alumni.dao.FetchAlumniDetails.getAlumni;
+import static com.example.alumni.dao.FetchAlumniDetails.ispresent;
 
 @Path("alumni")
 public class RegistrationController {
@@ -24,7 +26,7 @@ public class RegistrationController {
     @Path("/getinfo")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response registerStudent(Student student) throws URISyntaxException {
+    public Response getStudents(Student student) throws URISyntaxException {
         System.out.println(student.getFname());
         System.out.println(student.getLname());
         System.out.println(student.getYear());
@@ -40,5 +42,19 @@ public class RegistrationController {
         }
         return Response.ok().entity(alumnistudent).build();
 
+    }
+
+    @POST
+    @Path(("/isregistered"))
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+
+    public Response isregistered(AlumniDetails alumni){
+        boolean present = ispresent(alumni);
+
+        if(!present)
+            return Response.ok().build();
+        else
+            return Response.notModified().build();
     }
 }

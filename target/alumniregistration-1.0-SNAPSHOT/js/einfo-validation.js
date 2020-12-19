@@ -4,6 +4,13 @@ let einfo_form = document.getElementById('einfo-form');
 einfo_form.addEventListener('submit', async (e) => {
     e.preventDefault();
     e.stopPropagation();
+    let url = new URL(window.location.href);
+    let aid=url.searchParams.get("aid");
+    if(aid===null){
+        alert("Session expired, Please login");
+        window.open("index.html","_self");
+        return;
+    }
     if (einfo_form.checkValidity() === true) {
         let alumni_list=[];
         let array = $("#einfo-form").serializeArray();
@@ -13,9 +20,9 @@ einfo_form.addEventListener('submit', async (e) => {
             alumni['college_name']=array[i++].value;
             alumni['address']=array[i++].value;
             alumni['degree']=array[i++].value;
-            alumni['joining_year']=array[i++].value;
-            alumni['passing_year']=array[i++].value;
-            alumni['alumni']={id:1};
+            alumni['joining_year']=parseInt(array[i++].value);
+            alumni['passing_year']=parseInt(array[i++].value);
+            alumni['alumni']={id:parseInt(aid)};
 
             alumni_list.push(alumni);
         }
@@ -32,8 +39,17 @@ einfo_form.addEventListener('submit', async (e) => {
         // console.log("helloworld");
         // console.log(result[0].fname);
         einfo_form.classList.add('was-validated');
-
-        window.open("orginfo.html");
+        alert(response.status);
+        if(response.status==204){
+            alert("Please Enter Details, SKip if you don't have any");
+        }
+        else if(response.status==409){
+            alert("You have already registered");
+            window.open("index.html","_self");
+        }
+        else{
+            window.open("orginfo.html?aid="+aid,"_self");
+        }
         //window.href.location="orginfo.html";
 
     }

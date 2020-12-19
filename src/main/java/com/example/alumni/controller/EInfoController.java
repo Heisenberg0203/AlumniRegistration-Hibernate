@@ -23,24 +23,21 @@ public class EInfoController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response registerEducationDetails(List<AlumniEducation> edetails) throws URISyntaxException {
+        if(edetails.get(0).getCollege_name()==""){
+            return Response.status(204).build();
+
+        }
         System.out.println(edetails.get(0).getAlumni().getId());
         System.out.println(edetails.get(0).getCollege_name());
         System.out.println(edetails.get(0).getAddress());
         System.out.println(edetails.get(0).getJoining_year());
 
-        System.out.println(edetails.get(1).getAlumni().getId());
-        System.out.println(edetails.get(1).getCollege_name());
-        System.out.println(edetails.get(1).getAddress());
-        System.out.println(edetails.get(1).getJoining_year());
-
-
-
 
         int returnvalue=insert_einfo(edetails);
         if(returnvalue==1)
-            return Response.ok().entity(edetails).build();
+            return Response.ok().build();
         else
-            return Response.notModified().build();
+            return Response.status(409).build();
 
         //return  Response.ok().entity(edetails).build();
 

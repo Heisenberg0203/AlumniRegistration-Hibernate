@@ -28,7 +28,7 @@ public class PInfoController {
             if(returnvalue==1)
                 return Response.ok().entity(alumni).build();
             else
-                return Response.notModified().build();
+                return Response.status(409).entity(alumni).build();
 
 
     }
